@@ -4,6 +4,12 @@ title: "CRI Bioinformatics Workshop 2024"
 
 Welcome to the Cancer Research Institute Bioinformatics Workshop for 2024!
 
+# Tutorials
+
+1.  [Day 1](tutorials/day1.qmd)
+
+2.  [Day 2](tutorials/day2.qmd)
+
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
 ```{r}
