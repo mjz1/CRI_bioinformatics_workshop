@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mjz1.github.io/CRI_bioinformatics_workshop/about.html</loc>
-    <lastmod>2024-02-09T15:38:43.462Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mjz1.github.io/CRI_bioinformatics_workshop/tutorials/day2.html</loc>
-    <lastmod>2024-02-09T15:38:43.462Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mjz1.github.io/CRI_bioinformatics_workshop/tutorials/day1.html</loc>
-    <lastmod>2024-02-09T15:38:43.462Z</lastmod>
+    <loc>https://mjz1.github.io/CRI_bioinformatics_workshop/resources.html</loc>
+    <lastmod>2024-02-09T15:55:07.936Z</lastmod>
   </url>
   <url>
     <loc>https://mjz1.github.io/CRI_bioinformatics_workshop/index.html</loc>
-    <lastmod>2024-02-09T15:38:43.462Z</lastmod>
+    <lastmod>2024-02-09T15:55:07.932Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mjz1.github.io/CRI_bioinformatics_workshop/tutorials/day1.html</loc>
+    <lastmod>2024-02-09T15:55:07.936Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mjz1.github.io/CRI_bioinformatics_workshop/tutorials/day2.html</loc>
+    <lastmod>2024-02-09T15:55:07.936Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mjz1.github.io/CRI_bioinformatics_workshop/about.html</loc>
+    <lastmod>2024-02-09T15:55:07.932Z</lastmod>
   </url>
 </urlset>
