@@ -2,3 +2,64 @@
 title: "Day 1"
 ---
 
+
+# RStudio IDE
+
+What it is and why are we using it? Orientation of the interface?
+
+# Packages
+
+What is a package? Why do we use them?
+
+# Tidyverse 
+
+(avoid %>% for now)
+
+# Working directory
+
+Choose same “path” for Windows and Macs
+
+# Objects, variables, and environment
+
+# Functions
+
+# Reading in files
+
+## Read in as data frame
+
+### Metadata
+
+### Raw data
+
+## Read in Seurat object
+
+### Reads in both
+
+# Data structures and reformatting
+
+## Long vs wide
+
+## Merging
+
+## E.g. biological data
+
+# Plotting
+
+## Types of variables
+## Dimensions of visualization
+# Packages
+## Ggplot2
+## Seurat
+# Types of plots
+## Boxplots vs. violin plots
+## Scatter plots
+## Volcano plots
+## Heatmaps
+# Plot features by ggplot2
+## Layers
+
+# Statistics
+## Performing statistics
+## Plotting statistical values
+
+

@@ -2,3 +2,9 @@
 title: "Day 2"
 ---
 
+# Clustering (PCA, UMAP)
+# Linear regression, correlation
+# Plotting these features
+# Cell type clustering
+# Cluster comparisons
+# Statistics (ggpubr)
