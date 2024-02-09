@@ -154,7 +154,62 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#rstudio-ide" id="toc-rstudio-ide" class="nav-link active" data-scroll-target="#rstudio-ide">RStudio IDE</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse">Tidyverse</a></li>
+  <li><a href="#working-directory" id="toc-working-directory" class="nav-link" data-scroll-target="#working-directory">Working directory</a></li>
+  <li><a href="#objects-variables-and-environment" id="toc-objects-variables-and-environment" class="nav-link" data-scroll-target="#objects-variables-and-environment">Objects, variables, and environment</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
+  <li><a href="#reading-in-files" id="toc-reading-in-files" class="nav-link" data-scroll-target="#reading-in-files">Reading in files</a>
+  <ul class="collapse">
+  <li><a href="#read-in-as-data-frame" id="toc-read-in-as-data-frame" class="nav-link" data-scroll-target="#read-in-as-data-frame">Read in as data frame</a>
+  <ul class="collapse">
+  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a></li>
+  <li><a href="#raw-data" id="toc-raw-data" class="nav-link" data-scroll-target="#raw-data">Raw data</a></li>
+  </ul></li>
+  <li><a href="#read-in-seurat-object" id="toc-read-in-seurat-object" class="nav-link" data-scroll-target="#read-in-seurat-object">Read in Seurat object</a>
+  <ul class="collapse">
+  <li><a href="#reads-in-both" id="toc-reads-in-both" class="nav-link" data-scroll-target="#reads-in-both">Reads in both</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#data-structures-and-reformatting" id="toc-data-structures-and-reformatting" class="nav-link" data-scroll-target="#data-structures-and-reformatting">Data structures and reformatting</a>
+  <ul class="collapse">
+  <li><a href="#long-vs-wide" id="toc-long-vs-wide" class="nav-link" data-scroll-target="#long-vs-wide">Long vs wide</a></li>
+  <li><a href="#merging" id="toc-merging" class="nav-link" data-scroll-target="#merging">Merging</a></li>
+  <li><a href="#e.g.-biological-data" id="toc-e.g.-biological-data" class="nav-link" data-scroll-target="#e.g.-biological-data">E.g. biological data</a></li>
+  </ul></li>
+  <li><a href="#plotting" id="toc-plotting" class="nav-link" data-scroll-target="#plotting">Plotting</a>
+  <ul class="collapse">
+  <li><a href="#types-of-variables" id="toc-types-of-variables" class="nav-link" data-scroll-target="#types-of-variables">Types of variables</a></li>
+  <li><a href="#dimensions-of-visualization" id="toc-dimensions-of-visualization" class="nav-link" data-scroll-target="#dimensions-of-visualization">Dimensions of visualization</a></li>
+  </ul></li>
+  <li><a href="#packages-1" id="toc-packages-1" class="nav-link" data-scroll-target="#packages-1">Packages</a>
+  <ul class="collapse">
+  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2">Ggplot2</a></li>
+  <li><a href="#seurat" id="toc-seurat" class="nav-link" data-scroll-target="#seurat">Seurat</a></li>
+  </ul></li>
+  <li><a href="#types-of-plots" id="toc-types-of-plots" class="nav-link" data-scroll-target="#types-of-plots">Types of plots</a>
+  <ul class="collapse">
+  <li><a href="#boxplots-vs.-violin-plots" id="toc-boxplots-vs.-violin-plots" class="nav-link" data-scroll-target="#boxplots-vs.-violin-plots">Boxplots vs.&nbsp;violin plots</a></li>
+  <li><a href="#scatter-plots" id="toc-scatter-plots" class="nav-link" data-scroll-target="#scatter-plots">Scatter plots</a></li>
+  <li><a href="#volcano-plots" id="toc-volcano-plots" class="nav-link" data-scroll-target="#volcano-plots">Volcano plots</a></li>
+  <li><a href="#heatmaps" id="toc-heatmaps" class="nav-link" data-scroll-target="#heatmaps">Heatmaps</a></li>
+  </ul></li>
+  <li><a href="#plot-features-by-ggplot2" id="toc-plot-features-by-ggplot2" class="nav-link" data-scroll-target="#plot-features-by-ggplot2">Plot features by ggplot2</a>
+  <ul class="collapse">
+  <li><a href="#layers" id="toc-layers" class="nav-link" data-scroll-target="#layers">Layers</a></li>
+  </ul></li>
+  <li><a href="#statistics" id="toc-statistics" class="nav-link" data-scroll-target="#statistics">Statistics</a>
+  <ul class="collapse">
+  <li><a href="#performing-statistics" id="toc-performing-statistics" class="nav-link" data-scroll-target="#performing-statistics">Performing statistics</a></li>
+  <li><a href="#plotting-statistical-values" id="toc-plotting-statistical-values" class="nav-link" data-scroll-target="#plotting-statistical-values">Plotting statistical values</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -178,8 +233,108 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="rstudio-ide" class="level1">
+<h1>RStudio IDE</h1>
+<p>What it is and why are we using it? Orientation of the interface?</p>
+</section>
+<section id="packages" class="level1">
+<h1>Packages</h1>
+<p>What is a package? Why do we use them?</p>
+</section>
+<section id="tidyverse" class="level1">
+<h1>Tidyverse</h1>
+<p>(avoid %&gt;% for now)</p>
+</section>
+<section id="working-directory" class="level1">
+<h1>Working directory</h1>
+<p>Choose same “path” for Windows and Macs</p>
+</section>
+<section id="objects-variables-and-environment" class="level1">
+<h1>Objects, variables, and environment</h1>
+</section>
+<section id="functions" class="level1">
+<h1>Functions</h1>
+</section>
+<section id="reading-in-files" class="level1">
+<h1>Reading in files</h1>
+<section id="read-in-as-data-frame" class="level2">
+<h2 class="anchored" data-anchor-id="read-in-as-data-frame">Read in as data frame</h2>
+<section id="metadata" class="level3">
+<h3 class="anchored" data-anchor-id="metadata">Metadata</h3>
+</section>
+<section id="raw-data" class="level3">
+<h3 class="anchored" data-anchor-id="raw-data">Raw data</h3>
+</section>
+</section>
+<section id="read-in-seurat-object" class="level2">
+<h2 class="anchored" data-anchor-id="read-in-seurat-object">Read in Seurat object</h2>
+<section id="reads-in-both" class="level3">
+<h3 class="anchored" data-anchor-id="reads-in-both">Reads in both</h3>
+</section>
+</section>
+</section>
+<section id="data-structures-and-reformatting" class="level1">
+<h1>Data structures and reformatting</h1>
+<section id="long-vs-wide" class="level2">
+<h2 class="anchored" data-anchor-id="long-vs-wide">Long vs wide</h2>
+</section>
+<section id="merging" class="level2">
+<h2 class="anchored" data-anchor-id="merging">Merging</h2>
+</section>
+<section id="e.g.-biological-data" class="level2">
+<h2 class="anchored" data-anchor-id="e.g.-biological-data">E.g. biological data</h2>
+</section>
+</section>
+<section id="plotting" class="level1">
+<h1>Plotting</h1>
+<section id="types-of-variables" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-variables">Types of variables</h2>
+</section>
+<section id="dimensions-of-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="dimensions-of-visualization">Dimensions of visualization</h2>
+</section>
+</section>
+<section id="packages-1" class="level1">
+<h1>Packages</h1>
+<section id="ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="ggplot2">Ggplot2</h2>
+</section>
+<section id="seurat" class="level2">
+<h2 class="anchored" data-anchor-id="seurat">Seurat</h2>
+</section>
+</section>
+<section id="types-of-plots" class="level1">
+<h1>Types of plots</h1>
+<section id="boxplots-vs.-violin-plots" class="level2">
+<h2 class="anchored" data-anchor-id="boxplots-vs.-violin-plots">Boxplots vs.&nbsp;violin plots</h2>
+</section>
+<section id="scatter-plots" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plots">Scatter plots</h2>
+</section>
+<section id="volcano-plots" class="level2">
+<h2 class="anchored" data-anchor-id="volcano-plots">Volcano plots</h2>
+</section>
+<section id="heatmaps" class="level2">
+<h2 class="anchored" data-anchor-id="heatmaps">Heatmaps</h2>
+</section>
+</section>
+<section id="plot-features-by-ggplot2" class="level1">
+<h1>Plot features by ggplot2</h1>
+<section id="layers" class="level2">
+<h2 class="anchored" data-anchor-id="layers">Layers</h2>
+</section>
+</section>
+<section id="statistics" class="level1">
+<h1>Statistics</h1>
+<section id="performing-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="performing-statistics">Performing statistics</h2>
+</section>
+<section id="plotting-statistical-values" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-statistical-values">Plotting statistical values</h2>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
