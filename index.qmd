@@ -1,0 +1,11 @@
+---
+title: "CRI Bioinformatics Workshop 2024"
+---
+
+Welcome to the Cancer Research Institute Bioinformatics Workshop for 2024!
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+```{r}
+1 + 1
+```
