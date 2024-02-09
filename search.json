@@ -4,11 +4,7 @@
     "href": "resources.html",
     "title": "Additional Resources",
     "section": "",
-    "text": "Here are some additional resources for further reading:\n\nSingle Cell Best Practices\nRNA-seq Bioinformatics\nPrecision Medicine Bioinformatics\nOrchestrating Single-Cell Analysis with Bioconductor",
-    "crumbs": [
-      "Home",
-      "Additional Resources"
-    ]
+    "text": "Here are some additional resources for further reading:\n\nSingle Cell Best Practices\n\n\nRNA-seq Bioinformatics\n\n\nPrecision Medicine Bioinformatics\n\n\nOrchestrating Single-Cell Analysis with Bioconductor"
   },
   {
     "objectID": "index.html",
@@ -238,10 +234,6 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2",
-    "crumbs": [
-      "Home",
-      "About"
-    ]
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
   }
 ]
