@@ -4,10 +4,10 @@ title: "Additional Resources"
 
 Here are some additional resources for further reading:
 
-* [Single Cell Best Practices](https://www.sc-best-practices.org/preamble.html)
+### [Single Cell Best Practices](https://www.sc-best-practices.org/preamble.html)
 
-* [RNA-seq Bioinformatics](https://rnabio.org/course/)
+### [RNA-seq Bioinformatics](https://rnabio.org/course/)
 
-* [Precision Medicine Bioinformatics](https://pmbio.org/)
+### [Precision Medicine Bioinformatics](https://pmbio.org/)
 
-* [Orchestrating Single-Cell Analysis with Bioconductor](https://bioconductor.org/books/release/OSCA/)
+### [Orchestrating Single-Cell Analysis with Bioconductor](https://bioconductor.org/books/release/OSCA/)

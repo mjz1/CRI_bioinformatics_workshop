@@ -18,7 +18,7 @@ website:
         text: More Resources
   sidebar:
     style: docked
-    contents: auto
+    contents: tutorials
 
 format:
   html:
