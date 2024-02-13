@@ -10,7 +10,7 @@ website:
     - icon: github
       menu:
         - text: Source Code
-          url:  https://github.com/mjz1/CRI_bioinformatics_workshop
+          url:  https://github.com/crigrants/CRI_bioinformatics_workshop
     left:
       - href: index.qmd
         text: Home
