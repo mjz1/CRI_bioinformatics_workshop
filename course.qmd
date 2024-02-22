@@ -1,0 +1,23 @@
+---
+title: "Course overview"
+---
+
+# R Workshop (Days 1-2)
+
+1.  [Introduction to R programming](course/1_introR.qmd)
+
+2.  [Basic plotting and statistics](course/2_basicplotting.qmd)
+
+3.  [Statistics in R and ggpubr](course/3_statistics.qmd)
+
+4.  [Working with Seurat objects](course/4_seurat.qmd)
+
+5.  [Clustering methods](course/5_clustering.qmd)
+
+6.  [Batch effects, QC, and troubleshooting](course/6_qctrouble.qmd)
+
+# Bulk DNA/RNA sequencing (Day 3)
+
+# Single cell RNA sequencing (Days 4-5)
+
+# Imaging (Day 6)

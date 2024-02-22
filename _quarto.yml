@@ -12,13 +12,23 @@ website:
         - text: Source Code
           url:  https://github.com/crigrants/CRI_bioinformatics_workshop
     left:
-      - href: index.qmd
-        text: Home
-      - href: resources.qmd
-        text: More Resources
+      - text: "Home"
+        file: index.qmd
+      - text: "Course"
+        file: course.qmd
+      - text: "Schedule"
+        file: schedule.qmd
+      - text: "Authors"
+        file: authors.qmd
+      - text: "Resources"
+        file: resources.qmd
+      - text: "Acknowledgements"
+        file: acknowledge.qmd
+        
   sidebar:
-    style: docked
-    contents: tutorials
+    - title: "Course"
+      style: "docked"
+      contents: course
 
 format:
   html:
