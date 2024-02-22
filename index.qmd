@@ -2,16 +2,26 @@
 title: "CRI Bioinformatics Workshop 2024"
 ---
 
-Welcome to the Cancer Research Institute Bioinformatics Workshop for 2024!
+Welcome to the Cancer Research Institute Bioinformatics Bootcamp!
 
-# Tutorials
+# R Workshop
 
-1.  [Day 1](tutorials/day1.qmd)
+1.  [Introduction to R programming](tutorials/introR.qmd)
 
-2.  [Day 2](tutorials/day2.qmd)
+2.  [Basic plotting and statistics](tutorials/basicplotting.qmd)
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+3.  [Working with Seurat objects](tutorials/seurat.qmd)
 
-```{r}
-1 + 1
-```
+4.  [Introduction to ggplot](tutorials/plotting.qmd)
+
+5.  [Statistics in R and ggpubr](tutorials/statistics.qmd)
+
+6.  [Clustering methods](tutorials/clustering.qmd)
+
+7.  [Batch effects, QC, and troubleshooting](tutorials/qctrouble.qmd)
+
+# Bulk DNA/RNA sequencing
+
+# Single cell RNA sequencing
+
+# Imaging

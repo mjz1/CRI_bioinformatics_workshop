@@ -1,0 +1,88 @@
+---
+title: "Introduction to R programming"
+---
+
+# RStudio: Introduction and Interface Orientation
+
+[RStudio](https://www.rstudio.com/) is an integrated development environment (IDE) for R. It provides a user-friendly interface for coding, debugging, and data analysis. We use RStudio for its convenience and powerful features.
+
+## Interface Orientation
+
+- **Console**: Where you can directly type and execute R commands.
+- **Script Editor**: Where you write and save your R scripts.
+- **Environment and History**: Displays objects in your workspace and your command history.
+- **Files and Plots**: Helps manage files and view plots.
+- **Packages**: Shows installed packages and allows you to install and load new ones.
+
+# Packages in R
+
+A package is a collection of R functions, data, and compiled code. Packages provide a way to organize and share code, making it easier for users to access specific tools and functions.
+
+# Tidyverse
+
+[Tidyverse](https://www.tidyverse.org/) is a collection of R packages designed for data science. It includes packages like `ggplot2` for data visualization and `dplyr` for data manipulation.
+
+# Working Directory
+
+The working directory is the folder where R looks for files. It's important to set it correctly for consistency across Windows and Mac.
+
+```R
+# Set the working directory
+setwd("/your/path/to/directory")
+
+# Identify the current working directory
+getwd()
+```
+
+# Objects, Variables, and Environment
+
+In R, objects are created to store data. Variables are used to name and reference these objects. The environment is the current workspace where objects and variables are stored.
+
+```R
+# Creating a variable and storing data
+my_variable <- 42
+
+# Viewing objects in the environment
+ls()
+```
+
+# Functions
+
+Functions in R perform specific tasks. They take input (arguments), perform operations, and return output.
+
+```R
+# Example of a function
+sum_of_numbers <- sum(1:10)
+print(sum_of_numbers)
+```
+
+# Reading in Files
+
+Reading files is a crucial part of data analysis. R provides functions for reading various file formats.
+
+```R
+# Reading a CSV file into a data frame
+my_data <- read.csv("my_data.csv")
+
+# Reading a Seurat object
+library(Seurat)
+my_seurat_object <- readRDS("my_seurat_object.rds")
+```
+
+# Data Structures and Reformatting
+
+Understanding data structures is essential. R offers tools to manipulate and reformat data, such as converting between long and wide formats.
+
+```R
+# Converting data from long to wide
+wide_data <- reshape2::dcast(long_data, id ~ variable, value.var = "value")
+```
+
+# Merging Data
+
+Merging allows combining data from different sources. This is common in analyzing biological data.
+
+```R
+# Merging two data frames
+merged_data <- merge(data1, data2, by = "common_column")
+```
