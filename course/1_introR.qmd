@@ -27,33 +27,258 @@ A package is a collection of R functions, data, and compiled code. Packages prov
 The working directory is the folder where R looks for files. It's important to set it correctly for consistency across Windows and Mac.
 
 ```R
-# Set the working directory
-setwd("/your/path/to/directory")
+# Get the current working directory
+current_dir <- getwd()
+print(paste("Current directory:", current_dir))
 
-# Identify the current working directory
-getwd()
+# List files in the current directory
+files <- list.files()
+print("Files in the current directory:")
+print(files)
+
+# Change the current directory
+new_dir <- "path/to/new/directory"
+setwd(new_dir)
+print(paste("Changed directory to:", new_dir))
 ```
 
 # Objects, Variables, and Environment
 
 In R, objects are created to store data. Variables are used to name and reference these objects. The environment is the current workspace where objects and variables are stored.
 
+## Numeric
 ```R
-# Creating a variable and storing data
-my_variable <- 42
+# Numeric variable
+num_var <- 10
+print(num_var)  # Output: 10
 
-# Viewing objects in the environment
-ls()
+# Arithmetic operations
+result <- num_var * 2
+print(result)  # Output: 20
 ```
 
-# Functions
+## Character
+```R
+# Character variable
+char_var <- "Hello, World!"
+print(char_var)  # Output: Hello, World!
 
-Functions in R perform specific tasks. They take input (arguments), perform operations, and return output.
+# Concatenation
+new_string <- paste(char_var, "This is R programming.")
+print(new_string)  # Output: Hello, World! This is R programming.
+```
+
+## Integer
+```R
+# Integer variable
+int_var <- 20L  # The 'L' suffix indicates an integer
+print(int_var)  # Output: 20
+
+# Integer arithmetic
+result <- int_var / 5
+print(result)  # Output: 4
+```
+
+## Logical
+```R
+# Logical variable
+logical_var <- TRUE
+print(logical_var)  # Output: TRUE
+
+# Logical operations
+result <- logical_var & FALSE
+print(result)  # Output: FALSE
+
+
+# Logical operations
+a <- TRUE
+b <- FALSE
+
+# AND operation
+result_and <- a & b
+print(result_and)  # Output: FALSE
+
+# OR operation
+result_or <- a | b
+print(result_or)   # Output: TRUE
+
+# NOT operation
+result_not <- !a
+print(result_not)  # Output: FALSE
+
+# Comparison operators
+x <- 5
+y <- 10
+
+# Greater than
+result_gt <- x > y
+print(result_gt)  # Output: FALSE
+
+# Less than
+result_lt <- x < y
+print(result_lt)  # Output: TRUE
+
+# Equal to
+result_eq <- x == y
+print(result_eq)  # Output: FALSE
+
+# Not equal to
+result_neq <- x != y
+print(result_neq)  # Output: TRUE
+```
+
+# Conditional Statment
 
 ```R
-# Example of a function
-sum_of_numbers <- sum(1:10)
-print(sum_of_numbers)
+x <- 3
+if (x > 5) {
+  print("x is greater than 5")
+} else if (x == 5) {
+  print("x is equal to 5")
+} else {
+  print("x is less than 5")
+}
+```
+
+# Loops
+
+## While
+```R
+# Example of a while loop
+x <- 1
+while (x <= 5) {
+  print(x)
+  x <- x + 1
+}
+```
+
+## For
+```R
+# Example of a for loop
+for (i in 1:5) {
+  print(i)
+}
+```
+
+
+# Functions
+Functions in R perform specific tasks. They take input (arguments), perform operations, and return output.
+
+ - function_name: Name of the function.
+ - argument1, argument2, ...: Arguments passed to the function (optional).
+ - Function body: Code block where you define what the function should do.
+ - Return a value (optional): Use the return() statement to specify what the function should return (optional).
+
+```R
+function_name <- function(argument1, argument2, ...) {
+  # Function body
+  # Perform operations
+  # Return a value (optional)
+}
+```
+
+Here, we define a function and call it!
+```R
+# Define a function to calculate the square of a number
+square <- function(x) {
+  return(x^2)
+}
+
+# Call the function
+result <- square(5)
+print(result)  # Output: 25
+```
+
+# Tidyverse Data Frames
+
+Tidyverse is a collection of R packages designed for data science, developed with a focus on simplicity, consistency, and ease of use. One of the key components of Tidyverse is the concept of tidy data frames.
+
+### What is a Tidyverse Data Frame?
+
+A tidyverse data frame is a rectangular table-like structure where:
+- Each row represents an observation.
+- Each column represents a variable.
+- Each cell holds a single value.
+
+### Principles of Tidy Data:
+1. **Each variable forms a column**: In a tidy data frame, each variable is placed in its own column. This makes it easy to work with the dataset as each variable is explicitly represented.
+
+2. **Each observation forms a row**: Each row corresponds to a distinct observation, entity, or case. This makes it straightforward to perform operations on individual observations.
+
+3. **Each type of observational unit forms a table**: Different types of data should be stored in separate tables, with relationships between tables represented using unique identifiers.
+
+### Why Tidy Data Frames are Important:
+- **Ease of Analysis**: Tidy data frames make it easier to perform data manipulation, visualization, and analysis using Tidyverse packages such as `dplyr`, `ggplot2`, and `tidyr`.
+  
+- **Readability and Interpretability**: Tidy data frames have a consistent structure, making it easier for others to understand and interpret your data.
+
+- **Efficiency**: Tidy data frames facilitate efficient and concise code, reducing the complexity of data manipulation tasks.
+
+### Tidyverse Packages for Data Manipulation:
+- **dplyr**: Provides a grammar of data manipulation for data frames, enabling easy filtering, selecting, mutating, summarizing, and arranging of data.
+  
+- **tidyr**: Offers tools for reshaping and tidying messy datasets, such as `gather()` and `spread()` functions for converting between wide and long formats.
+  
+- **ggplot2**: Allows for the creation of sophisticated data visualizations using a layered grammar of graphics.
+
+```R
+# Example dataset
+data <- data.frame(
+  ID = 1:3,
+  Name = c("Alice", "Bob", "Charlie"),
+  Math = c(90, 85, 95),
+  Science = c(88, 92, 89)
+)
+
+# Original dataset
+print("Original dataset:")
+print(data)
+
+# Tidy the dataset using gather() function from tidyr
+tidy_data <- gather(data, Subject, Score, -ID, -Name)
+
+# Tidied dataset
+print("Tidied dataset:")
+print(tidy_data)
+```
+
+## Selecting Columns
+
+Selecting columns allows you to choose specific columns from your dataset. It helps you focus on the variables of interest and ignore the rest.
+
+```R
+selected_data <- select(tidy_data, ID, Math)
+print(selected_data)
+```
+
+## Filtering Rows
+
+Filtering rows allows you to subset your dataset based on specific conditions. It helps you extract only the rows that meet certain criteria.
+
+```R
+# Filtering rows based on conditions
+filtered_data <- filter(tidy_data, Math > 90)
+print(filtered_data)
+```
+
+## Summarizing Data
+
+Summarizing data involves calculating summary statistics or aggregating data to get a concise overview of your dataset. It helps you understand the overall characteristics of your data.
+
+```R
+summary_data <- summarize(tidy_data, 
+                          Mean_Math = mean(Math), 
+                          Mean_Science = mean(Science))
+print(summary_data)
+```
+
+## Sorting (Arranging)
+
+Arranging rows involves sorting your dataset based on the values of one or more columns. It helps you reorder your data for better visualization or analysis.
+
+```R
+arranged_data <- arrange(tidy_data, desc(Math))
+print(arranged_data)
 ```
 
 # Reading in Files
@@ -61,28 +286,330 @@ print(sum_of_numbers)
 Reading files is a crucial part of data analysis. R provides functions for reading various file formats.
 
 ```R
-# Reading a CSV file into a data frame
-my_data <- read.csv("my_data.csv")
+# Read a CSV file into a data frame
+data <- read.csv("path/to/your/file.csv")
 
-# Reading a Seurat object
-library(Seurat)
-my_seurat_object <- readRDS("my_seurat_object.rds")
+# View the structure of the data frame
+print("Structure of the data frame:")
+print(str(data))
+
+# View the first few rows of the data frame
+print("First few rows of the data frame:")
+print(head(data))
 ```
 
-# Data Structures and Reformatting
+## Long and Wide Data Formats
 
-Understanding data structures is essential. R offers tools to manipulate and reformat data, such as converting between long and wide formats.
+Long and wide data formats are two common ways of structuring data, each with its own advantages and use cases.
+
+### Long Format
+
+In the long format, also known as the "tidy" format, each observation is represented by a single row in the dataset. This format is characterized by having:
+- Multiple rows, each corresponding to a single observation or measurement.
+- One column for the variable being measured.
+- Additional columns to store metadata or grouping variables.
+
+**Advantages**:
+- Facilitates easy analysis and manipulation, especially when using tools like Tidyverse packages in R.
+- Suitable for data that follow the "one observation per row" principle, such as time series or longitudinal data.
+
+**Example**:
+| Subject | Time | Measurement |
+|---------|------|-------------|
+| A       | 1    | 10          |
+| A       | 2    | 15          |
+| B       | 1    | 12          |
+| B       | 2    | 18          |
+
+### Wide Format
+
+In the wide format, each observation is represented by a single row, but with multiple columns corresponding to different variables. This format is characterized by:
+- One row per observation.
+- Each variable is represented by a separate column.
+
+**Advantages**:
+- Can be easier to understand for simple datasets with few variables.
+- May be more convenient for certain types of analysis or visualization.
+
+**Example**:
+| Subject | Time1 | Time2 |
+|---------|-------|-------|
+| A       | 10    | 15    |
+| B       | 12    | 18    |
+
+### Choosing Between Long and Wide Formats
+
+The choice between long and wide formats depends on factors such as the nature of the data, the analysis tasks, and personal preference. Long format is often preferred for its flexibility and compatibility with modern data analysis tools, while wide format may be suitable for simpler datasets or specific analysis requirements.
+
+## Long to Wide
 
 ```R
-# Converting data from long to wide
-wide_data <- reshape2::dcast(long_data, id ~ variable, value.var = "value")
+library(tidyr)
+
+# Example long format data
+long_data <- data.frame(
+  Subject = c("A", "A", "B", "B"),
+  Time = c(1, 2, 1, 2),
+  Measurement = c(10, 15, 12, 18)
+)
+
+# Convert long format data to wide format
+wide_data <- spread(long_data, key = Time, value = Measurement)
+
+# View the wide format data
+print(wide_data)
+```
+
+## Wide to Long
+
+```R
+library(tidyr)
+
+# Example wide format data
+wide_data <- data.frame(
+  Subject = c("A", "B"),
+  Time1 = c(10, 12),
+  Time2 = c(15, 18)
+)
+
+# Convert wide format data to long format
+long_data <- gather(wide_data, key = Time, value = Measurement, -Subject)
+
+# View the long format data
+print(long_data)
 ```
 
 # Merging Data
 
 Merging allows combining data from different sources. This is common in analyzing biological data.
+## Joins and Merging of Data in Tidyverse
+
+Joins and merging are common operations used to combine multiple datasets based on common variables or keys. In Tidyverse, these operations are typically performed using functions from the `dplyr` package.
+
+### Types of Joins:
+
+#### Inner Join (`inner_join()`):
+An inner join combines rows from two datasets where there is a match based on a common key, retaining only the rows with matching keys from both datasets.
+
+#### Left Join (`left_join()`):
+A left join combines all rows from the first (left) dataset with matching rows from the second (right) dataset based on a common key. If there is no match in the second dataset, missing values are filled in.
+
+#### Right Join (`right_join()`):
+Similar to a left join, but it retains all rows from the second (right) dataset and fills in missing values for non-matching rows from the first (left) dataset.
+
+#### Full Join (`full_join()`):
+A full join combines all rows from both datasets, filling in missing values where there are no matches.
+
+#### Semi-Join (`semi_join()`):
+A semi-join returns only rows from the first dataset where there are matching rows in the second dataset, based on a common key.
+
+#### Anti-Join (`anti_join()`):
+An anti-join returns only rows from the first dataset that do not have matching rows in the second dataset, based on a common key.
+
+### Merging Data:
+
+#### Merge (`merge()`):
+The `merge()` function is a base R function used to merge datasets based on common columns or keys. It performs similar operations to joins in `dplyr`, but with slightly different syntax and behavior.
+
+### Example:
 
 ```R
-# Merging two data frames
-merged_data <- merge(data1, data2, by = "common_column")
+library(dplyr)
+
+# Example datasets
+df1 <- data.frame(ID = c(1, 2, 3), Name = c("Alice", "Bob", "Charlie"))
+df2 <- data.frame(ID = c(2, 3, 4), Score = c(85, 90, 95))
+
+# Inner join
+inner_merged <- inner_join(df1, df2, by = "ID")
+
+# Left join
+left_merged <- left_join(df1, df2, by = "ID")
+
+# Right join
+right_merged <- right_join(df1, df2, by = "ID")
+
+# Full join
+full_merged <- full_join(df1, df2, by = "ID")
+
+# Semi-join
+semi_merged <- semi_join(df1, df2, by = "ID")
+
+# Anti-join
+anti_merged <- anti_join(df1, df2, by = "ID")
+```
+
+# Seurat R Package
+
+Seurat is an R package developed for single-cell RNA sequencing (scRNA-seq) data analysis. It provides a comprehensive suite of tools for quality control, preprocessing, analysis, and visualization of single-cell genomics data.
+
+### Key Features:
+
+- **Quality Control**: Seurat offers various quality control metrics to assess the quality of scRNA-seq data, such as gene and cell detection rates, mitochondrial gene content, and library size normalization.
+
+- **Preprocessing**: It includes functions for filtering cells based on quality control metrics, normalizing gene expression data, scaling gene expression values, and identifying highly variable genes.
+
+- **Clustering and Dimensionality Reduction**: Seurat provides methods for clustering cells based on gene expression profiles, as well as dimensionality reduction techniques such as principal component analysis (PCA) and uniform manifold approximation and projection (UMAP).
+
+- **Integration of Multiple Datasets**: Seurat allows integration of scRNA-seq datasets from different experiments or conditions, enabling comparative analysis across multiple samples.
+
+- **Cell Type Annotation**: It includes tools for annotating cell types based on marker gene expression patterns or by integrating external reference datasets.
+
+- **Visualization**: Seurat offers a variety of visualization tools, including heatmaps, feature plots, t-SNE plots, UMAP plots, and trajectory analysis plots, to explore and interpret single-cell data.
+
+### Loading an h5 File with Seurat:
+
+To load an h5 file containing single-cell RNA-seq data into Seurat, you can use the `Read10X_h5()` function. Here's an example:
+
+```R
+# Load the Seurat package
+library(Seurat)
+
+# Path to the h5 file
+h5_file <- "path/to/your/file.h5"
+
+# Load the h5 file into Seurat object
+seurat_object <- Read10X_h5(h5_file)
+`
+# Optionally, perform additional preprocessing steps or analyses with the Seurat object
+```
+
+# Gene Expression Data Storage
+
+Gene expression data from single-cell RNA sequencing (scRNA-seq) experiments is typically represented as a matrix, where rows correspond to genes and columns correspond to cells. Each cell contains the expression level of a gene, quantified as counts or normalized values.
+
+### Matrix Data Types in R
+
+In R, there are several matrix data types commonly used for storing and manipulating gene expression data:
+
+- **Matrix (`matrix`)**: The basic matrix data type in R. It is a two-dimensional array with elements of the same data type.
+
+- **Data Frame (`data.frame`)**: A special type of matrix where columns can contain different data types (e.g., numeric, character, factor). Data frames are commonly used for storing tabular data, including gene expression matrices with additional metadata.
+
+- **Sparse Matrix (`Matrix` package)**: A matrix format optimized for storing large, sparse datasets with many zero values. It conserves memory and speeds up computation for large-scale analyses.
+
+### Basic Operations on Matrix Objects
+
+#### Creating a Matrix:
+```R
+# Create a matrix with random values
+mat <- matrix(rnorm(20), nrow = 4, ncol = 5)
+```
+
+Matrix operations
+```R
+element <- mat[1, 2]
+
+# Calculate row sums
+row_sums <- rowSums(mat)
+
+# Calculate column sums
+col_sums <- colSums(mat)
+
+# Create another matrix
+mat2 <- matrix(rnorm(20), nrow = 5, ncol = 4)
+
+# Perform matrix multiplication
+mat_mult <- mat %*% mat2
+
+# Transpose the matrix
+mat_transpose <- t(mat)
+
+# Select the first two rows
+first_two_rows <- mat[1:2, ]
+
+# Select the first three columns
+first_three_cols <- mat[, 1:3]
+```
+
+# Histograms
+
+Plotting gene expression.
+
+```R
+# Load required libraries
+library(Seurat)
+library(ggplot2)
+
+# Specify the gene of interest
+gene_of_interest <- "GZMB"
+
+# Extract expression of the gene of interest across all cells
+expression_data <- seurat_object@assays$RNA@data[gene_of_interest, ]
+
+# Convert the expression data to a data frame
+expression_df <- data.frame(Expression = expression_data)
+
+# Plot expression as a histogram using ggplot
+ggplot(expression_df, aes(x = Expression)) +
+  geom_histogram(binwidth = 0.1, fill = "skyblue", color = "black") +
+  labs(title = paste("Expression of", gene_of_interest),
+       x = "Expression", y = "Frequency")
+```
+
+Plotting gene expression by cell type.
+
+```R
+# Load required libraries
+library(Seurat)
+library(ggplot2)
+
+
+# Specify the gene of interest
+gene_of_interest <- "GZMB"
+
+# Extract expression of the gene of interest and cell type information
+expression_data <- seurat_object@assays$RNA@data[gene_of_interest, ]
+cell_type <- seurat_object$cell_type
+
+# Convert the expression data and cell type to a data frame
+expression_df <- data.frame(Expression = expression_data, CellType = cell_type)
+
+# Plot expression as a histogram grouped by cell type using ggplot
+ggplot(expression_df, aes(x = Expression, fill = CellType)) +
+  geom_histogram(binwidth = 0.1, color = "black", alpha = 0.5) +
+  labs(title = paste("Expression of", gene_of_interest, "by Cell Type"),
+       x = "Expression", y = "Frequency") +
+  scale_fill_discrete(name = "Cell Type")
+```
+
+Box and Violin Plots 
+
+```R
+# Load required libraries
+library(Seurat)
+library(ggplot2)
+
+
+# Specify the genes of interest
+genes_of_interest <- c("GZMB", "GZMK", "TOX")  # Add more genes as needed
+
+# Extract expression data for the genes of interest
+expression_data <- seurat_object@assays$RNA@data[genes_of_interest, ]
+cell_type <- seurat_object$cell_type_variable
+
+# Convert the expression data and cell type to a data frame
+expression_df <- data.frame(Expression = as.vector(t(expression_data)), 
+                            Gene = rep(genes_of_interest, each = ncol(expression_data)),
+                            CellType = rep(cell_type, times = length(genes_of_interest)))
+
+# Create box plot of gene expression
+box_plot <- ggplot(expression_df, aes(x = Gene, y = Expression, fill = CellType)) +
+  geom_boxplot() +
+  labs(title = "Box Plot of Gene Expression by Cell Type",
+       x = "Gene", y = "Expression") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_discrete(name = "Cell Type")
+
+# Create violin plot of gene expression
+violin_plot <- ggplot(expression_df, aes(x = Gene, y = Expression, fill = CellType)) +
+  geom_violin(trim = FALSE) +
+  labs(title = "Violin Plot of Gene Expression by Cell Type",
+       x = "Gene", y = "Expression") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_discrete(name = "Cell Type")
+
+# Display the plots
+print(box_plot)
+print(violin_plot)
 ```
