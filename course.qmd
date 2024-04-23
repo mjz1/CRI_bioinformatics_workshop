@@ -16,8 +16,38 @@ title: "Course overview"
 
 6.  [Batch effects, QC, and troubleshooting](course/6_qctrouble.qmd)
 
-# Bulk DNA/RNA sequencing (Day 3)
+# Bulk RNA sequence analysis (Day 3)
+
+1. [Introduction to rnabio.org and bulk RNAseq dataset](https://rnabio.org/)
+
+2. [Introduction to IGV](https://rnabio.org/module-02-alignment/0002/05/01/Alignment_Visualization/)
+
+3. [Differential Expression Analysis (DESeq2)](https://rnabio.org/module-03-expression/0003/03/01/Differential_Expression/)
+
+4. [Differential Expression Visualization (DESeq2)](https://rnabio.org/module-03-expression/0003/04/01/DE_Visualization/)
+
+5. [Differential Expression Visualization (Advanced R)](https://rnabio.org/module-03-expression/0003/04/01/DE_Visualization/)
+
+6. [Pathway Analysis](https://rnabio.org/module-03-expression/0003/05/01/DE_Pathway_Analysis/)
+
+7. [Batch Correction](https://rnabio.org/module-03-expression/0003/06/01/Batch-Correction/)
 
 # Single cell RNA sequencing (Days 4-5)
+
+1. [Introduction to scRNAseq dataset]()
+
+2. [QA/QC and Clustering](https://rnabio.org/module-08-scrna/0008/02/01/Quality_assessment/)
+
+3. [Cell Type Annotation](https://rnabio.org/module-08-scrna/0008/03/01/Clustering/)
+
+4. [Differential Expression](https://rnabio.org/module-08-scrna/0008/04/01/DE_analysis/)
+
+5. [Gene Set Enrichment](https://rnabio.org/module-08-scrna/0008/05/01/Gene_set_enrichment/)
+
+6. [Cancer Cell Identification](https://rnabio.org/module-08-scrna/0008/06/01/Cancer_cell_identification/)
+
+7. [Trajectory Analysis](https://rnabio.org/module-08-scrna/0008/07/01/Differentiation_trajectory/)
+
+8. [TCR/BCR Repertoire Analysis](https://rnabio.org/module-08-scrna/0008/08/01/TCR_BCR_colonal_resconstruction/)
 
 # Imaging (Day 6)
