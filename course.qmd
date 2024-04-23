@@ -36,9 +36,9 @@ title: "Course overview"
 
 1. [Introduction to scRNAseq dataset]()
 
-2. [QA/QC and Clustering](https://rnabio.org/module-08-scrna/0008/02/01/Quality_assessment/)
+2. [QA/QC and Clustering](https://rnabio.org/module-08-scrna/0008/02/01/QA_clustering/)
 
-3. [Cell Type Annotation](https://rnabio.org/module-08-scrna/0008/03/01/Clustering/)
+3. [Cell Type Annotation](https://rnabio.org/module-08-scrna/0008/03/01/Cell_annotation/)
 
 4. [Differential Expression](https://rnabio.org/module-08-scrna/0008/04/01/DE_analysis/)
 
