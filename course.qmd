@@ -18,36 +18,37 @@ title: "Course overview"
 
 # Bulk RNA sequence analysis (Day 3)
 
-1. [Introduction to rnabio.org and bulk RNAseq dataset](https://rnabio.org/)
+1. [Introduction to rnabio.org and bulk RNAseq dataset](https://rnabio.org/) (Lead: Obi/Malachi)
 
-2. [Introduction to IGV](https://rnabio.org/module-02-alignment/0002/05/01/Alignment_Visualization/)
+2. [Introduction to IGV](https://rnabio.org/module-02-alignment/0002/05/01/Alignment_Visualization/) (Lead: Malachi)
 
-3. [Differential Expression Analysis (DESeq2)](https://rnabio.org/module-03-expression/0003/03/01/Differential_Expression/)
+3. [Differential Expression Analysis (DESeq2)](https://rnabio.org/module-03-expression/0003/03/01/Differential_Expression/) (Lead: Zach)
 
-4. [Differential Expression Visualization (DESeq2)](https://rnabio.org/module-03-expression/0003/04/01/DE_Visualization/)
+4. [Differential Expression Visualization (DESeq2)](https://rnabio.org/module-03-expression/0003/04/01/DE_Visualization/) (Lead: Zach)
 
-5. [Differential Expression Visualization (Advanced R)](https://rnabio.org/module-03-expression/0003/04/01/DE_Visualization/)
+5. [Differential Expression Visualization (Advanced R)](https://rnabio.org/module-03-expression/0003/04/01/DE_Visualization/) (Lead: Obi/Charles)
 
-6. [Pathway Analysis](https://rnabio.org/module-03-expression/0003/05/01/DE_Pathway_Analysis/)
+6. [Pathway Analysis](https://rnabio.org/module-03-expression/0003/05/01/DE_Pathway_Analysis/) (Lead: Obi)
 
-7. [Batch Correction](https://rnabio.org/module-03-expression/0003/06/01/Batch-Correction/)
+7. [Batch Correction](https://rnabio.org/module-03-expression/0003/06/01/Batch-Correction/) (Lead: Malachi)
 
 # Single cell RNA sequencing (Days 4-5)
 
-1. [Introduction to scRNAseq dataset]()
+1. [Introduction to scRNAseq dataset]() (Lead: Malachi)
 
-2. [QA/QC and Clustering](https://rnabio.org/module-08-scrna/0008/02/01/QA_clustering/)
+2. [QA/QC and Clustering](https://rnabio.org/module-08-scrna/0008/02/01/QA_clustering/) (Lead: Evelyn)
 
-3. [Cell Type Annotation](https://rnabio.org/module-08-scrna/0008/03/01/Cell_annotation/)
+3. [Cell Type Annotation](https://rnabio.org/module-08-scrna/0008/03/01/Cell_annotation/) (Lead: Kelsy)
 
-4. [Differential Expression](https://rnabio.org/module-08-scrna/0008/04/01/DE_analysis/)
+4. [Differential Expression](https://rnabio.org/module-08-scrna/0008/04/01/DE_analysis/) (Lead: Kartik)
 
-5. [Gene Set Enrichment](https://rnabio.org/module-08-scrna/0008/05/01/Gene_set_enrichment/)
+5. [Gene Set Enrichment](https://rnabio.org/module-08-scrna/0008/05/01/Gene_set_enrichment/) (Lead: Kartik)
 
-6. [Cancer Cell Identification](https://rnabio.org/module-08-scrna/0008/06/01/Cancer_cell_identification/)
+6. [Cancer Cell Identification](https://rnabio.org/module-08-scrna/0008/06/01/Cancer_cell_identification/) (Lead: Kartik)
 
-7. [Trajectory Analysis](https://rnabio.org/module-08-scrna/0008/07/01/Differentiation_trajectory/)
+7. [Trajectory Analysis](https://rnabio.org/module-08-scrna/0008/07/01/Differentiation_trajectory/) (Lead: Evelyn/Malachi)
 
-8. [TCR/BCR Repertoire Analysis](https://rnabio.org/module-08-scrna/0008/08/01/TCR_BCR_colonal_resconstruction/)
+8. [TCR/BCR Repertoire Analysis](https://rnabio.org/module-08-scrna/0008/08/01/TCR_BCR_analysis/) (Lead: Obi)
+
 
 # Imaging (Day 6)
