@@ -142,7 +142,10 @@ if (x > 5) {
 
 # Loops
 
-## While
+## `while`
+
+A while loop is a control flow statement that allows code to be executed repeatedly based on a given Boolean condition. The loop executes the loop body as long as the condition remains true. When the condition becomes false, the loop terminates.
+
 ```R
 # Example of a while loop
 x <- 1
@@ -152,7 +155,16 @@ while (x <= 5) {
 }
 ```
 
-## For
+#### Considerations:
+ - Ensure that the loop has an exit condition that is guaranteed to be met to avoid infinite loops.
+ - Avoid complex conditions that can make the loop difficult to read and maintain.
+ - Use while loops when the number of iterations is not known before the loop starts, as opposed to for loops, which are better suited for a known number of iterations.
+ - Manage loop variables carefully to ensure they are updated correctly and the loop condition changes as expected.
+
+## `for`
+
+A for loop is a control flow statement used in many programming languages to repeat a block of code multiple times. It is particularly useful for iterating over sequences (like lists, arrays, or strings) and executing a piece of code for each element in the sequence.
+
 ```R
 # Example of a for loop
 for (i in 1:5) {
@@ -160,33 +172,135 @@ for (i in 1:5) {
 }
 ```
 
+##### Considerations
+ - Ensure the loop has a condition that eventually becomes false to prevent infinite loops.
+ - Be careful with the loop's scope and variables to avoid unintended side effects.
 
-# Functions
-Functions in R perform specific tasks. They take input (arguments), perform operations, and return output.
+## `apply`
 
- - function_name: Name of the function.
- - argument1, argument2, ...: Arguments passed to the function (optional).
- - Function body: Code block where you define what the function should do.
- - Return a value (optional): Use the return() statement to specify what the function should return (optional).
+The apply() function in R is a powerful tool for applying a function to the rows or columns of a matrix or data frame. It is particularly useful for performing operations across a dataset without needing to write explicit loops. The syntax for apply() is:
+
 
 ```R
-function_name <- function(argument1, argument2, ...) {
-  # Function body
-  # Perform operations
-  # Return a value (optional)
-}
+apply(X, margin, function, ...)
+
+# X: This is the array or matrix on which you want to apply the function.
+# margin: A value that specifies whether to apply the function over rows (1), columns (2), or both (c(1, 2)).
+# function: The function you want to apply to each row or column.
 ```
 
-Here, we define a function and call it!
+To calculate the sum of each row in a matrix:
 ```R
-# Define a function to calculate the square of a number
-square <- function(x) {
-  return(x^2)
-}
+# Create a matrix
+my_matrix <- matrix(1:9, nrow=3)
 
-# Call the function
-result <- square(5)
-print(result)  # Output: 25
+# Apply sum function across rows
+row_sums <- apply(my_matrix, 1, sum)
+print(row_sums)
+```
+
+To find the mean of each column in a data frame:
+```R
+# Create a data frame
+df <- data.frame(a = c(1, 2, 3), b = c(4, 5, 6))
+
+# Apply mean function across columns
+column_means <- apply(df, 2, mean)
+print(column_means)
+```
+
+
+### `sapply` and `lappy`
+
+- `lapply()` returns a list, regardless of the output of each application of the function.
+- `sapply()` attempts to simplify the result into a vector or matrix if possible. If simplification is not possible, it returns a list similar to `lapply()`.
+
+Suppose you have a list of numerical vectors and you want to compute the sum of each vector. Here's how you could use lapply():
+```R
+# Define a list of vectors
+num_list <- list(c(1, 2, 3), c(4, 5), c(6, 7, 8, 9))
+
+# Use lapply to apply the sum function
+list_sums <- lapply(num_list, sum)
+print(list_sums)
+```
+
+Using the same list of numerical vectors, if you use sapply() to compute the sum, the function will try to simplify the output into a vector:
+
+```R
+# Use sapply to apply the sum function
+vector_sums <- sapply(num_list, sum)
+print(vector_sums)
+```
+
+When to Use Each
+ 
+ - `lapply()`: When you need the robustness of a list output, especially when dealing with heterogeneous data or when the function can return variable lengths or types.
+ - `sapply()`: When you are working with homogeneous data and prefer a simplified output such as a vector or matrix, assuming the lengths and types are consistent across elements.
+
+# String Manipulation
+
+The `stringr` package in R simplifies these tasks with easy-to-use functions that can handle typical string operations.
+
+## Finding Patterns
+
+Finding specific sequences or motifs within biological sequences is a common task.
+```R
+sequence <- "ATGCGTACGTTGAC"
+motif <- "CGT"
+str_locate(sequence, motif)
+```
+
+## Replacing Substrings
+
+Modifying sequences by replacing specific nucleotides or amino acids.
+
+```R
+dna_sequence <- "ATGCGTACGTTGAC"
+rna_sequence <- str_replace_all(dna_sequence, "T", "U")
+print(rna_sequence)
+```
+
+## Substring Extraction
+
+Extracting parts of sequences, such as cutting out genes or regions of interest.
+
+```R
+extracted_sequence <- str_sub(sequence, 3, 8)
+print(extracted_sequence)
+```
+
+## Length Calculation
+
+Determining the length of sequences.
+```R
+sequence_length <- str_length(sequence)
+print(sequence_length)
+```
+
+## Case Conversion
+
+Converting uppercase to lowercase, or vice versa.
+
+```R
+sequence_upper <- str_to_upper(sequence)
+print(sequence_upper)
+```
+
+## Splitting Strings
+
+Splitting sequences into arrays, useful for reading fasta files or analyzing codons.
+```R
+codons <- str_sub(sequence, seq(1, str_length(sequence), by = 3), seq(3, str_length(sequence), by = 3))
+print(codons)
+```
+
+## Counting Specific Characters
+
+Counting occurrences of specific nucleotides or amino acids.
+```R
+guanine_count <- str_count(sequence, "G")
+print(guanine_count)
 ```
 
 # Tidyverse Data Frames
@@ -281,6 +395,153 @@ arranged_data <- arrange(tidy_data, desc(Math))
 print(arranged_data)
 ```
 
+## Mutate
+
+The mutate() function in the dplyr package is essential for transforming data frames in R. It allows you to add new columns to a data frame or modify existing ones, using existing data. mutate() is part of the tidyverse, a collection of R packages designed for data science that makes data manipulation, exploration, and visualization easy and intuitive.
+
+### Adding columns
+Calculating the GC content of DNA sequences.
+```R
+library(dplyr)
+library(stringr)
+
+# Sample data
+sequences <- tibble(
+  id = c("seq1", "seq2", "seq3"),
+  dna = c("ATGCGC", "GCGTACGT", "ATATATAT")
+)
+
+# Calculate GC content
+sequences <- sequences %>%
+  mutate(gc_content = (str_count(dna, "[GC]") / str_length(dna)) * 100)
+
+print(sequences)
+```
+
+### Replacing existing columns
+
+Transcription of DNA sequences into RNA sequences involves replacing thymine (T) with uracil (U).
+
+```
+# Convert DNA to RNA
+sequences <- sequences %>%
+  mutate(rna = str_replace_all(dna, "T", "U"))
+
+print(sequences)
+```
+
+
+### Multiple Transformations
+
+Identifying potential neoantigens by finding motifs associated with high mutation frequencies or specific mutation patterns.
+
+```R
+# Sample DNA sequences
+sequences <- tibble(
+  id = c("seq1", "seq2", "seq3"),
+  dna = c("ATGCGCATC", "GCGTACGTAGT", "ATATATATAT")
+)
+
+# Assume a simple motif that might indicate a neoantigen
+motif = "ATG"
+
+# Annotate sequences with potential neoantigen presence
+sequences <- sequences %>%
+  mutate(
+    start_position = str_locate(dna, motif)[,1],
+    is_neoantigen_candidate = ifelse(start_position > 0 & str_count(dna, "[GC]") / str_length(dna) > 0.5, "Yes", "No")
+  )
+
+print(sequences)
+```
+
+
+# Functions
+
+## Definition
+Functions (`function`) in R perform specific tasks. They take input (arguments), perform operations, and return output.
+
+ - function_name: Name of the function.
+ - argument1, argument2, ...: Arguments passed to the function (optional).
+ - Function body: Code block where you define what the function should do.
+ - Return a value (optional): Use the return() statement to specify what the function should return (optional).
+
+```R
+function_name <- function(argument1, argument2, ...) {
+  # Function body
+  # Perform operations
+  # Return a value (optional)
+}
+```
+
+Here, we define a function and call it!
+```R
+# Define a function to calculate the square of a number
+square <- function(x) {
+  return(x^2)
+}
+
+# Call the function
+result <- square(5)
+print(result)  # Output: 25
+```
+
+## Example
+
+Let's bring together concepts by writing the function `analyze_tcr_data`.
+
+
+The function will:
+
+ - Filter T cell sequences based on a specified length threshold.
+ - Sort the remaining data by clonality in descending order to identify the most prevalent TCRs.
+ - Create a new column that indicates the presence of a specific motif within the TCR sequence, a common task in sequence analysis.
+
+
+```R
+library(dplyr)
+library(stringr)
+
+# Define the function
+analyze_tcr_data <- function(tcr_tibble, length_threshold) {
+  # Validate input
+  if (!inherits(tcr_tibble, "tbl_df")) {
+    stop("Input must be a tibble.")
+  }
+  
+  # Filter TCR sequences longer than the threshold and sort by clonality
+  filtered_and_sorted <- tcr_tibble %>%
+    filter(str_length(tcr_sequence) > length_threshold) %>%
+    arrange(desc(clonality))
+  
+  # Add a column to indicate the presence of a specific motif (e.g., 'CASS')
+  enhanced_tcr_tibble <- filtered_and_sorted %>%
+    mutate(has_motif = if_else(str_detect(tcr_sequence, "CASS"), "Yes", "No"))
+  
+  # Return the transformed tibble
+  return(enhanced_tcr_tibble)
+}
+
+# Example usage
+# Assuming a tibble with TCR sequences and clonality metrics
+tcr_data <- tibble(
+  tcr_sequence = c("CASSLGGTDTQYF", "CASSLGDETQYF", "CASSLG", "CASSEGTDTQYF"),
+  clonality = c(0.25, 0.15, 0.05, 0.55)
+)
+
+# Apply the function with a length threshold of 10
+result_data <- analyze_tcr_data(tcr_data, 10)
+print(result_data)
+```
+
+Explanation
+
+ - Validation: The function starts by checking if the provided data is a tibble to ensure type safety.
+ - Filtering: Uses filter() to retain only TCR sequences longer than the specified length_threshold.
+ - Sorting: Uses arrange() to sort the data by clonality in descending order.
+ - String Manipulation: Adding has_motif Column: Uses mutate() combined with str_detect() from the stringr package to add a column that indicates whether each TCR sequence contains the motif "CASS".
+ - Return Value: Outputs a tibble that's been filtered, sorted, and enhanced with additional string-based analysis.
+
 # Reading in Files
 
 Reading files is a crucial part of data analysis. R provides functions for reading various file formats.
@@ -313,14 +574,6 @@ In the long format, also known as the "tidy" format, each observation is represe
 - Facilitates easy analysis and manipulation, especially when using tools like Tidyverse packages in R.
 - Suitable for data that follow the "one observation per row" principle, such as time series or longitudinal data.
 
-**Example**:
-| Subject | Time | Measurement |
-|---------|------|-------------|
-| A       | 1    | 10          |
-| A       | 2    | 15          |
-| B       | 1    | 12          |
-| B       | 2    | 18          |
-
 ### Wide Format
 
 In the wide format, each observation is represented by a single row, but with multiple columns corresponding to different variables. This format is characterized by:
@@ -330,12 +583,6 @@ In the wide format, each observation is represented by a single row, but with mu
 **Advantages**:
 - Can be easier to understand for simple datasets with few variables.
 - May be more convenient for certain types of analysis or visualization.
-
-**Example**:
-| Subject | Time1 | Time2 |
-|---------|-------|-------|
-| A       | 10    | 15    |
-| B       | 12    | 18    |
 
 ### Choosing Between Long and Wide Formats
 
@@ -439,42 +686,7 @@ semi_merged <- semi_join(df1, df2, by = "ID")
 anti_merged <- anti_join(df1, df2, by = "ID")
 ```
 
-# Seurat R Package
-
-Seurat is an R package developed for single-cell RNA sequencing (scRNA-seq) data analysis. It provides a comprehensive suite of tools for quality control, preprocessing, analysis, and visualization of single-cell genomics data.
-
-### Key Features:
-
-- **Quality Control**: Seurat offers various quality control metrics to assess the quality of scRNA-seq data, such as gene and cell detection rates, mitochondrial gene content, and library size normalization.
-
-- **Preprocessing**: It includes functions for filtering cells based on quality control metrics, normalizing gene expression data, scaling gene expression values, and identifying highly variable genes.
-
-- **Clustering and Dimensionality Reduction**: Seurat provides methods for clustering cells based on gene expression profiles, as well as dimensionality reduction techniques such as principal component analysis (PCA) and uniform manifold approximation and projection (UMAP).
-
-- **Integration of Multiple Datasets**: Seurat allows integration of scRNA-seq datasets from different experiments or conditions, enabling comparative analysis across multiple samples.
-
-- **Cell Type Annotation**: It includes tools for annotating cell types based on marker gene expression patterns or by integrating external reference datasets.
-
-- **Visualization**: Seurat offers a variety of visualization tools, including heatmaps, feature plots, t-SNE plots, UMAP plots, and trajectory analysis plots, to explore and interpret single-cell data.
-
-### Loading an h5 File with Seurat:
-
-To load an h5 file containing single-cell RNA-seq data into Seurat, you can use the `Read10X_h5()` function. Here's an example:
-
-```R
-# Load the Seurat package
-library(Seurat)
-
-# Path to the h5 file
-h5_file <- "path/to/your/file.h5"
-
-# Load the h5 file into Seurat object
-seurat_object <- Read10X_h5(h5_file)
-`
-# Optionally, perform additional preprocessing steps or analyses with the Seurat object
-```
-
-# Gene Expression Data Storage
+# Matrices
 
 Gene expression data from single-cell RNA sequencing (scRNA-seq) experiments is typically represented as a matrix, where rows correspond to genes and columns correspond to cells. Each cell contains the expression level of a gene, quantified as counts or normalized values.
 
@@ -522,94 +734,234 @@ first_two_rows <- mat[1:2, ]
 first_three_cols <- mat[, 1:3]
 ```
 
-# Histograms
 
-Plotting gene expression.
+# Plotting
+
+## `ggplot2`
+
+The core idea behind ``ggplot2`` is the concept of a "grammar of graphics". This concept provides a systematic way to describe and build graphical presentations such as charts and plots. The grammar itself is a set of independent components that can be composed in many different ways. This grammar includes elements like:
+
+ - Data: The raw data that you want to visualize.
+ - Aesthetics (`aes`): Defines how data are mapped to color, size, shape, and other visual properties.
+ - Geometries (`geom`): The geometric objects in a plot—lines, points, bars, etc.
+ - Scales: Transformations applied to data before it is visualized, including scales for colors, sizes, and shapes.
+ - Coordinate systems: The space in which data is plotted.
+ - Facets: Used for creating plots with multiple panels (small multiple plots).
+ - Statistical transformations (stat): Summary statistics that can be applied to data before it is visualized, such as counting or averaging.
+ - Themes: Visual styles and layout configurations for the plot.
+
+
+Here’s how you generally use ggplot2 to create a plot:
+
+ - Start with `ggplot()`: Set up the data and, optionally, define default mappings between variables and their aesthetics.
+ - Add layers: Add layers to the plot using geom_ functions, such as `geom_point()` for scatter plots, `geom_line()` for line graphs, and so on.  
+ - Adjust the scales: Customize the scales used for aesthetics such as color, size, and x-y coordinates.
+ - Modify the coordinate system: Choose a coordinate system.
+ - Add facets: If necessary, add facets to create a multi-panel plot.
+ - Apply a theme: Customize the appearance of the plot using themes.
 
 ```R
-# Load required libraries
-library(Seurat)
 library(ggplot2)
 
-# Specify the gene of interest
-gene_of_interest <- "GZMB"
+# Sample data
+df <- data.frame(
+  x = rnorm(100),
+  y = rnorm(100),
+  group = factor(rep(1:2, each = 50))
+)
 
-# Extract expression of the gene of interest across all cells
-expression_data <- seurat_object@assays$RNA@data[gene_of_interest, ]
-
-# Convert the expression data to a data frame
-expression_df <- data.frame(Expression = expression_data)
-
-# Plot expression as a histogram using ggplot
-ggplot(expression_df, aes(x = Expression)) +
-  geom_histogram(binwidth = 0.1, fill = "skyblue", color = "black") +
-  labs(title = paste("Expression of", gene_of_interest),
-       x = "Expression", y = "Frequency")
+# Creating a scatter plot
+ggplot(df, aes(x = x, y = y, color = group)) + 
+  geom_point() +
+  theme_minimal() +
+  labs(title = "Scatter Plot Example", x = "X Axis", y = "Y Axis")
 ```
 
-Plotting gene expression by cell type.
+## Histogram
+
+Let's simulate some TCR clonotype data. We will create a dataset where each TCR has a randomly generated number of cells associated with it, representing the clone size. After generating the data, we'll use the hist() function from base R to plot a histogram of the clone sizes.
 
 ```R
-# Load required libraries
-library(Seurat)
-library(ggplot2)
+library(dplyr)
 
+# Step 1: Simulate data
+set.seed(123)  # Set seed for reproducibility
+num_clonotypes <- 100  # Specify the number of different clonotypes
 
-# Specify the gene of interest
-gene_of_interest <- "GZMB"
+# Create a data frame with random cell counts for each clonotype
+tcr_data <- tibble(
+  clonotype = paste("TCR", seq_len(num_clonotypes), sep=""),
+  cell_count = sample(1:1000, num_clonotypes, replace=TRUE)  # Random cell counts between 1 and 1000
+)
 
-# Extract expression of the gene of interest and cell type information
-expression_data <- seurat_object@assays$RNA@data[gene_of_interest, ]
-cell_type <- seurat_object$cell_type
-
-# Convert the expression data and cell type to a data frame
-expression_df <- data.frame(Expression = expression_data, CellType = cell_type)
-
-# Plot expression as a histogram grouped by cell type using ggplot
-ggplot(expression_df, aes(x = Expression, fill = CellType)) +
-  geom_histogram(binwidth = 0.1, color = "black", alpha = 0.5) +
-  labs(title = paste("Expression of", gene_of_interest, "by Cell Type"),
-       x = "Expression", y = "Frequency") +
-  scale_fill_discrete(name = "Cell Type")
+# Step 2: Create a histogram of clone sizes
+hist(tcr_data$cell_count, 
+     breaks=20,  # You can adjust the number of breaks to change bin sizes
+     col="skyblue", 
+     main="Histogram of TCR Clone Sizes", 
+     xlab="Clone Size (Number of Cells)", 
+     ylab="Frequency")
 ```
 
-Box and Violin Plots 
+We can perform the same task using ``ggplot2``:
+```R
+library(ggplot2)
+library(dplyr)
+
+# Step 1: Simulate data
+set.seed(123)  # Set seed for reproducibility
+num_clonotypes <- 100  # Specify the number of different clonotypes
+
+# Create a data frame with random cell counts for each clonotype
+tcr_data <- tibble(
+  clonotype = paste("TCR", seq_len(num_clonotypes), sep=""),
+  cell_count = sample(1:1000, num_clonotypes, replace=TRUE)  # Random cell counts between 1 and 1000
+)
+
+# Step 2: Create a histogram using ggplot2
+ggplot(tcr_data, aes(x = cell_count)) + 
+  geom_histogram(bins = 20, fill = "skyblue", color = "black") + 
+  theme_minimal() + 
+  labs(
+    title = "Histogram of TCR Clone Sizes",
+    x = "Clone Size (Number of Cells)",
+    y = "Frequency"
+  ) + 
+  theme(
+    plot.title = element_text(hjust = 0.5)  # Center the plot title
+  )
+```
+
+## Boxplot
+
+Let's simulate some gene expression data for key CD8 T cell genes.
 
 ```R
-# Load required libraries
-library(Seurat)
-library(ggplot2)
+library(tidyverse)
+library(MASS)  # For negative binomial simulation
 
+# Define genes and number of cells
+genes <- c("GZMB", "GZMA", "GNLY", "PRF1", "TOX", "ENTPD1", "LAG3", "TIGIT", "HAVCR2", "TIGIT", "CXCL13", "IL7R", "SELL", "LEF1", "TCF7")
+num_cells <- 20
 
-# Specify the genes of interest
-genes_of_interest <- c("GZMB", "GZMK", "TOX")  # Add more genes as needed
+# Parameters for negative binomial
+size <- 2  # Dispersion parameter
+mu_pre <- 20  # Mean for pre-treatment
+mu_post <- 30  # Mean for post-treatment
 
-# Extract expression data for the genes of interest
-expression_data <- seurat_object@assays$RNA@data[genes_of_interest, ]
-cell_type <- seurat_object$cell_type_variable
+# Simulate gene expression data
+set.seed(42)
+pre_treatment <- sapply(rep(mu_pre, length(genes)), function(mu) rnbinom(num_cells, size, mu = mu))
+post_treatment <- sapply(rep(mu_post, length(genes)), function(mu) rnbinom(num_cells, size, mu = mu))
 
-# Convert the expression data and cell type to a data frame
-expression_df <- data.frame(Expression = as.vector(t(expression_data)), 
-                            Gene = rep(genes_of_interest, each = ncol(expression_data)),
-                            CellType = rep(cell_type, times = length(genes_of_interest)))
+# Format as data frame
+pre_data <- as_tibble(pre_treatment, .name_repair = "minimal") %>% 
+  mutate(Treatment = "Pre") %>% 
+  pivot_longer(cols = -Treatment, names_to = "Gene", values_to = "Expression", names_prefix = "V")
 
-# Create box plot of gene expression
-box_plot <- ggplot(expression_df, aes(x = Gene, y = Expression, fill = CellType)) +
+post_data <- as_tibble(post_treatment, .name_repair = "minimal") %>% 
+  mutate(Treatment = "Post") %>% 
+  pivot_longer(cols = -Treatment, names_to = "Gene", values_to = "Expression", names_prefix = "V")
+
+# Combine the datasets
+combined_data <- bind_rows(pre_data, post_data)
+```
+
+Now let's use this data to build a boxplot of TOX expression pre and post treatment.
+
+```R
+# Filter data for the TOX gene
+tox_data <- combined_data %>% 
+  filter(Gene == "TOX")
+
+# Plot
+ggplot(tox_data, aes(x=Treatment, y=Expression, fill=Treatment)) +
   geom_boxplot() +
-  labs(title = "Box Plot of Gene Expression by Cell Type",
-       x = "Gene", y = "Expression") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  scale_fill_discrete(name = "Cell Type")
-
-# Create violin plot of gene expression
-violin_plot <- ggplot(expression_df, aes(x = Gene, y = Expression, fill = CellType)) +
-  geom_violin(trim = FALSE) +
-  labs(title = "Violin Plot of Gene Expression by Cell Type",
-       x = "Gene", y = "Expression") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  scale_fill_discrete(name = "Cell Type")
-
-# Display the plots
-print(box_plot)
-print(violin_plot)
+  labs(title="Expression of TOX pre and post treatment", x="Treatment Condition", y="Expression Level") +
+  theme_minimal() +
+  scale_fill_brewer(palette="Pastel1")  # Enhance aesthetics with color
 ```
+
+## Violin plot
+
+Same thing a violin plot.
+```R
+library(ggplot2)
+
+# Filter data for the TOX gene
+tox_data <- combined_data %>% 
+  filter(Gene == "TOX")
+
+# Create the violin plot
+ggplot(tox_data, aes(x=Treatment, y=Expression, fill=Treatment)) +
+  geom_violin(trim=FALSE) +  # Trim set to FALSE to show the full range of data
+  labs(title="Expression of TOX pre and post treatment", x="Treatment Condition", y="Expression Level") +
+  theme_minimal() +
+  scale_fill_brewer(palette="Pastel1") +
+  geom_boxplot(width=0.1, fill="white")  # Overlay boxplot to show median and quartiles
+```
+
+# Statistics
+
+## t-Test
+A t-test could be used to compare the means of two groups, for example, the level of a specific immune marker in patients with and without a certain mutation.
+
+```R
+R
+Copy code
+# Randomly generated sample data: Immune marker levels in two patient groups
+group1 <- rnorm(30, mean = 5, sd = 1.5) # Patients with a mutation
+group2 <- rnorm(30, mean = 4.5, sd = 1.2) # Patients without the mutation
+
+# Perform a t-test
+test <- t.test(group1, group2)
+
+# Print the result
+print(test)
+```
+
+## Fisher's Exact Test
+
+Assume you've identified a TCR clonotype and quantified the number of cells expressing this clonotype at two timepoints:
+
+ - Timepoint 1 (Pre-treatment): `X` number of cells
+ - Timepoint 2 (Post-treatment): `Y` number of cells
+
+You also need the total number of cells sequenced at each timepoint to complete the contingency table for the Fisher's Exact Test. Let's say:
+
+ - Total cells at Timepoint 1: `N_pre`
+ - Total cells at Timepoint 2: `N_post`
+
+ ```R
+# Number of cells with the specific clonotype at each timepoint
+cells_with_clone <- c(X, Y)  
+
+# Number of cells without the clonotype (total cells minus cells with the clonotype)
+cells_without_clone <- c(N_pre - X, N_post - Y)
+
+# Create the contingency table
+data <- matrix(c(cells_with_clone, cells_without_clone), ncol = 2,
+               dimnames = list(c("With Clone", "Without Clone"),
+                               c("Pre-Treatment", "Post-Treatment")))
+
+# Perform Fisher's Exact Test
+test <- fisher.test(data)
+
+# Print the result
+print(test)
+ ```
+ 
+ - The matrix data has two rows ("With Clone" and "Without Clone") and two columns ("Pre-Treatment" and "Post-Treatment").
+This matrix is filled with the counts of cells with and without the specific TCR clonotype at each timepoint.
+ - `fisher.test(data)` calculates whether the proportions of cells with the clonotype are significantly different between the two timepoints.
+ - The output includes a p-value which indicates the probability that any observed difference in proportions occurred by chance.
+
+
+
+# Dimensionality Reduction
+
+# Clustering
+
+# Troubleshooting
+
+
