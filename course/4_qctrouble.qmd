@@ -1,4 +1,25 @@
 ---
-title: "Batch effects, QC, and troubleshooting"
+title: "Common challenges and additional resources"
 ---
+
+# Where do I go for help? 
+In other words, how do I learn what to Google...
+
+## Stack Exchange
+
+## ChatGPT
+
+# Good practices
+
+## Commenting your code
+
+## Publicly accessible resources
+
+### Github
+
+# Where do I go for practice?
+
+## CodeFights
+
+# How do I apply the code I've learned to my own data?
 
