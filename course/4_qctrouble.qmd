@@ -56,6 +56,28 @@ Github hosts numerous repositories containing R scripts, packages, and projects.
 
 Once you've learned R programming basics, applying the code to your own data involves understanding your data structure, identifying relevant functions and packages, and adapting example code to suit your specific analysis goals.
 
+
+```R
+# Example: Applying code to your own data
+# Load your dataset
+my_data <- read.csv("my_data.csv")
+
+# Explore the structure of your data
+str(my_data)
+
+# Identify relevant variables and features
+# HINT: Use colnames() and tidyverse functions to clean up your data
+
+# Perform analysis or visualization using appropriate functions and packages
+# HINT: Use ggpubr functions to parallelize statistics across groups
+
+# Adapt example code to suit your data and analysis goals
+# HINT: Try different methods of plotting. Consider what important features you're trying to understand and show with this data.
+
+# Comment your code for clarity and future reference
+# HINT: Make your life easier when it comes time for reproducing your figures and filling in that "Data and Code Availability" section of your manuscript.
+```
+
 # Where do I go for practice?
 
 ## CodeFights
