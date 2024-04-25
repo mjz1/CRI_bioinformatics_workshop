@@ -2,7 +2,14 @@
 title: "Common challenges and additional resources"
 ---
 
+# Common challenges
+
+## *NaN* and missing data
+
+## Missing packages or dependencies
+
 # Where do I go for help? 
+
 In other words, how do I learn what to Google...
 
 ## Stack Exchange
