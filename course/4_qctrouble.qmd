@@ -6,27 +6,60 @@ title: "Common challenges and additional resources"
 
 ## *NaN* and missing data
 
+Dealing with missing data and NaN (Not a Number) values is a common challenge in R programming. These values can affect the results of your analyses and visualizations. It's essential to handle missing data appropriately, either by imputing them or excluding them from the analysis, depending on the context.
+
+**Example**: 
+```R
+# Creating a dataframe with missing values
+df <- data.frame(
+  x = c(1, 2, NA, 4),
+  y = c(5, NA, 7, 8)
+)
+
+# Check for missing values
+sum(is.na(df))
+```
+
 ## Missing packages or dependencies
 
-# Where do I go for help? 
+When running R code, you may encounter errors related to missing packages or dependencies. This occurs when you try to use functions or libraries that are not installed on your system. This will commonly look like a red error stating "There is no package..." Installing the required packages using *install.packages("package_name")* can resolve this issue.
 
-In other words, how do I learn what to Google...
+```R
+# Trying to use a function from an uninstalled package
+library(ggplot2)
+ggplot(df, aes(x, y)) + geom_point()
+# Error: there is no package called 'ggplot2'
+```
+
+# Where do I go for help?
 
 ## Stack Exchange
 
+Online communities like Stack Exchange, particularly the Stack Overflow platform, are excellent resources for getting help with R programming. You can search for solutions to specific problems or ask questions if you're facing challenges. If you attempt to Google what you're trying to accomplish with your dataset, StackExchange often includes responses from others who may have gone through this effort before. With the open crowdsourcing of troubleshooting, these responses that work for others are "upvoted" so that you can try to adapt the code to work for your dataset. Importantly, take care to change the names of variables and file paths in any code that you try to implement from others. 
+
 ## ChatGPT
+
+ChatGPT is an AI assistant that can provide guidance and answer questions related to R programming. You can ask for clarification on concepts, debugging assistance, or advice on best practices. If you copy/paste an error into ChatGPT, it often tries to debug without any other preface. However, if you try to explain exactly what your code is trying to accomplish, it can be a helpful way to debug your help.
 
 # Good practices
 
-## Commenting your code
+##Commenting your code
+Adding comments to your code is crucial for making it more understandable to yourself and others. Comments provide context and explanations for the code's functionality, making it easier to troubleshoot and maintain.
 
 ## Publicly accessible resources
 
 ### Github
 
+Github hosts numerous repositories containing R scripts, packages, and projects. Browsing through repositories and contributing to open-source projects can help you learn from others' code and collaborate with the R community. This can be a direct way to make your code available upon publication, according to journal practices.
+
+# How do I apply the code I've learned to my own data?
+
+Once you've learned R programming basics, applying the code to your own data involves understanding your data structure, identifying relevant functions and packages, and adapting example code to suit your specific analysis goals.
+
 # Where do I go for practice?
 
 ## CodeFights
 
-# How do I apply the code I've learned to my own data?
+CodeFights (now CodeSignal) offers coding challenges and exercises in R and other programming languages. Practicing coding problems can help reinforce your skills and improve your problem-solving abilities.
+
 
