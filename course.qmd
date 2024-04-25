@@ -18,7 +18,7 @@ title: "Course overview"
 
 # Bulk RNA sequence analysis (Day 3)
 
-1. [Introduction to rnabio.org and bulk RNAseq dataset](https://rnabio.org/) (Lead: Obi/Malachi)
+1. [Introduction to rnabio.org](https://rnabio.org/) and [bulk RNAseq dataset](https://rnabio.org/module-01-inputs/0001/05/01/RNAseq_Data/) (Lead: Obi/Malachi)
 
 2. [Introduction to IGV](https://rnabio.org/module-02-alignment/0002/05/01/Alignment_Visualization/) (Lead: Malachi)
 
