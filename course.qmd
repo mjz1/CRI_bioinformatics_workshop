@@ -2,7 +2,7 @@
 title: "Course overview"
 ---
 
-# R Workshop (Days 1-2)
+# R Workshop (Day 1, Sat. - Day 2, Sun.)
 
 1.  [Introduction to R programming](course/1_introR.qmd)
 
@@ -16,7 +16,7 @@ title: "Course overview"
 
 6.  [Batch effects, QC, and troubleshooting](course/6_qctrouble.qmd)
 
-# Bulk RNA sequence analysis (Day 3)
+# Bulk RNA sequence analysis (Day 3, Mon.)
 
 1. [Introduction to rnabio.org](https://rnabio.org/) and [bulk RNAseq dataset](https://rnabio.org/module-01-inputs/0001/05/01/RNAseq_Data/) (Lead: Obi/Malachi)
 
@@ -32,7 +32,7 @@ title: "Course overview"
 
 7. [Batch Correction](https://rnabio.org/module-03-expression/0003/06/01/Batch-Correction/) (Lead: Malachi)
 
-# Single cell RNA sequencing (Days 4-5)
+# Single cell RNA sequencing (Day 4, Tue. - Day 5, Wed.)
 
 1. [Introduction to scRNAseq dataset]() (Lead: Malachi)
 
@@ -51,4 +51,5 @@ title: "Course overview"
 8. [TCR/BCR Repertoire Analysis](https://rnabio.org/module-08-scrna/0008/08/01/TCR_BCR_analysis/) (Lead: Obi)
 
 
-# Imaging (Day 6)
+# Imaging (Day 6, Thu.)
+
