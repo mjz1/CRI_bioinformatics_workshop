@@ -41,7 +41,7 @@ Online communities like Stack Exchange, particularly the Stack Overflow platform
 
 ChatGPT is an AI assistant that can provide guidance and answer questions related to R programming. You can ask for clarification on concepts, debugging assistance, or advice on best practices. If you copy/paste an error into ChatGPT, it often tries to debug without any other preface. However, if you try to explain exactly what your code is trying to accomplish, it can be a helpful way to debug your help.
 
-# Good practices
+## Good practices
 
 ##Commenting your code
 Adding comments to your code is crucial for making it more understandable to yourself and others. Comments provide context and explanations for the code's functionality, making it easier to troubleshoot and maintain.
