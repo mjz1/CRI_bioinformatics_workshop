@@ -9,21 +9,25 @@ Long and wide data formats are two common ways of structuring data, each with it
 ### Long Format
 
 In the long format, also known as the "tidy" format, each observation is represented by a single row in the dataset. This format is characterized by having:
+
 - Multiple rows, each corresponding to a single observation or measurement.
 - One column for the variable being measured.
 - Additional columns to store metadata or grouping variables.
 
 **Advantages**:
+
 - Facilitates easy analysis and manipulation, especially when using tools like Tidyverse packages in R.
 - Suitable for data that follow the "one observation per row" principle, such as time series or longitudinal data.
 
 ### Wide Format
 
 In the wide format, each observation is represented by a single row, but with multiple columns corresponding to different variables. This format is characterized by:
+
 - One row per observation.
 - Each variable is represented by a separate column.
 
 **Advantages**:
+
 - Can be easier to understand for simple datasets with few variables.
 - May be more convenient for certain types of analysis or visualization.
 
@@ -72,11 +76,14 @@ print(long_data)
 # Merging Data
 
 Merging allows combining data from different sources. This is common in analyzing biological data.
+
 ## Joins and Merging of Data in Tidyverse
 
 Joins and merging are common operations used to combine multiple datasets based on common variables or keys. In Tidyverse, these operations are typically performed using functions from the `dplyr` package.
 
 ### Types of Joins:
+
+![Types of Joins](join_diagram.png)
 
 #### Inner Join (`inner_join()`):
 An inner join combines rows from two datasets where there is a match based on a common key, retaining only the rows with matching keys from both datasets.
