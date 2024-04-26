@@ -30,7 +30,7 @@ title: "Course overview"
 
 # Single cell RNA sequencing (Day 4, Tue. - Day 5, Wed.)
 
-1. [Introduction to scRNAseq dataset]() (Lead: Malachi)
+1. [Introduction to scRNAseq dataset](https://rnabio.org/module-08-scrna/0008/01/02/scRNA_Data/) (Lead: Malachi)
 
 2. [QA/QC and Clustering](https://rnabio.org/module-08-scrna/0008/02/01/QA_clustering/) (Lead: Evelyn)
 
