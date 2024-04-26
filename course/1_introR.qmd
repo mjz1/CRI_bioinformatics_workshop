@@ -282,6 +282,7 @@ The `stringr` package in R simplifies these tasks with easy-to-use functions tha
 
 Finding specific sequences or motifs within biological sequences is a common task.
 ```R
+library(stringr)
 sequence <- "ATGCGTACGTTGAC"
 motif <- "CGT"
 str_locate(sequence, motif)
@@ -292,7 +293,7 @@ str_locate(sequence, motif)
 Modifying sequences by replacing specific nucleotides or amino acids.
 
 ```R
-dna_sequence <- "ATGCGTACGTTGAC"
+dna_sequence <- "ATGCGTACGTTGACT"
 rna_sequence <- str_replace_all(dna_sequence, "T", "U")
 print(rna_sequence)
 ```
@@ -352,6 +353,7 @@ A package is a collection of R functions, data, and compiled code. Packages prov
 Tidyverse is a collection of R packages designed for data science, developed with a focus on simplicity, consistency, and ease of use. One of the key components of Tidyverse is the concept of tidy data frames.
 
 A tidyverse data frame is a rectangular table-like structure where:
+
 - Each row represents an observation.
 - Each column represents a variable.
 - Each cell holds a single value.
@@ -378,6 +380,10 @@ A tidyverse data frame is a rectangular table-like structure where:
 - **ggplot2**: Allows for the creation of sophisticated data visualizations using a layered grammar of graphics.
 
 ```R
+library(ggplot2)
+library(tidyr)
+librarY(dplyr)
+
 # Example dataset
 data <- data.frame(
   ID = 1:3,
@@ -464,7 +470,7 @@ print(sequences)
 
 Transcription of DNA sequences into RNA sequences involves replacing thymine (T) with uracil (U).
 
-```
+```R
 # Convert DNA to RNA
 sequences <- sequences %>%
   mutate(rna = str_replace_all(dna, "T", "U"))
@@ -502,11 +508,6 @@ print(sequences)
 ## Definition
 Functions (`function`) in R perform specific tasks. They take input (arguments), perform operations, and return output.
 
- - function_name: Name of the function.
- - argument1, argument2, ...: Arguments passed to the function (optional).
- - Function body: Code block where you define what the function should do.
- - Return a value (optional): Use the return() statement to specify what the function should return (optional).
-
 ```R
 function_name <- function(argument1, argument2, ...) {
   # Function body
@@ -514,6 +515,10 @@ function_name <- function(argument1, argument2, ...) {
   # Return a value (optional)
 }
 ```
+ - function_name: Name of the function.
+ - argument1, argument2, ...: Arguments passed to the function (optional).
+ - Function body: Code block where you define what the function should do.
+ - Return a value (optional): Use the return() statement to specify what the function should return (optional).
 
 Here, we define a function and call it!
 ```R
@@ -578,9 +583,9 @@ print(result_data)
 Explanation
 
  - Validation: The function starts by checking if the provided data is a tibble to ensure type safety.
- - Filtering: Uses filter() to retain only TCR sequences longer than the specified length_threshold.
- - Sorting: Uses arrange() to sort the data by clonality in descending order.
- - String Manipulation: Adding has_motif Column: Uses mutate() combined with str_detect() from the stringr package to add a column that indicates whether each TCR sequence contains the motif "CASS".
+ - Filtering: Uses `filter()` to retain only TCR sequences longer than the specified length_threshold.
+ - Sorting: Uses `arrange()` to sort the data by clonality in descending order.
+ - String Manipulation: Adding has_motif Column: Uses `mutate()` combined with `str_detect()` from the stringr package to add a column that indicates whether each TCR sequence contains the motif "CASS".
  - Return Value: Outputs a tibble that's been filtered, sorted, and enhanced with additional string-based analysis.
 
 # Reading in Files
