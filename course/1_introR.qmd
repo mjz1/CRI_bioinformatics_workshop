@@ -643,7 +643,7 @@ prac_data <- iris
 # Petal.Length is less than 5 and FALSE if the Petal.Length is at least 5
 # CODE YOUR ANSWER HERE
 
-# Create a function called "score"that checks whether the value of a numeric vector 
+# Create a function called "score" that checks whether the value of a numeric vector 
 # (input) is greater than the mean of all of the values, and returns a character vector
 # with "high" for the values greater than the mean and "low" for the values
 # less than the mean.
