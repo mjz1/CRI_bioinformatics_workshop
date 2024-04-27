@@ -613,3 +613,58 @@ print("First few rows of the data frame:")
 print(head(data))
 ```
 
+# Additional Exercises
+
+```R
+# Load the iris dataset (saved as iris in base R)
+prac_data <- iris
+
+# What variables are measured in the iris dataset?
+# Hint: What do colnames(), str(), and summary() tell you about the data frame
+# CODE YOUR ANSWER HERE
+
+# How many sets of measurements were taken in the iris dataset?
+# Hint: What is the difference between nrow(), ncol(), dim(), and length()
+# CODE YOUR ANSWER HERE
+
+# What are the three unique types of species analyzed in the iris dataset?
+# Hint: How can unique() and table() be used to understand iris$Species
+# CODE YOUR ANSWER HERE
+
+# Filter the iris dataset to only those that are of the Species setosa
+# Save this dataframe as the variable "setosa"
+# CODE YOUR ANSWER HERE
+
+# What is the average sepal width of irises that are of the Species setosa?
+# Hint: Summary values of numeric vectors can be evaluated using min(), median(), max(), and summary()
+# CODE YOUR ANSWER HERE
+
+# Add a new column to setosa called "short_petal" that indicates TRUE if the 
+# Petal.Length is less than 5 and FALSE if the Petal.Length is at least 5
+# CODE YOUR ANSWER HERE
+
+# Create a function called "score"that checks whether the value of a numeric vector 
+# (input) is greater than the mean of all of the values, and returns a character vector
+# with "high" for the values greater than the mean and "low" for the values
+# less than the mean.
+
+# Create a new column for setosa called "sepal_length_score" that uses "high" and
+# "low" to indicate which values are greater than or less than the mean.
+# Hint: How can you use the function you create 
+
+# Advanced: What does the following block of code do
+iris %>%
+  group_by(Species) %>%
+  count()
+
+# Advanced: Do you have a *.csv, *.tsv, or *.txt file of your own that you
+# can add to your project?
+# Hint: There is an "Upload" option in the Files pane where you can add a file
+# that is present on your own computer. You can then read the file into your
+# environment.
+
+
+```
+
+
+
